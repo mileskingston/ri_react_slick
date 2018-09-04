@@ -1,5 +1,4 @@
-import React, { PureComponent } from 'react';
-
+import React from 'react';
 import './UGCGallerySlide.css';
 
 const UGCGallerySlide = (props) => (
