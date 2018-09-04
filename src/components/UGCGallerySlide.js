@@ -2,14 +2,10 @@ import React, { PureComponent } from 'react';
 
 import './UGCGallerySlide.css';
 
-const UGCGallerySlide = (props) => { 
-  const { image } = this.props;
-
-  return (
-    <a className="ugc-gallery__slides" href="#" onClick={() => { props.onClick(); }}>
-      <img src={image.url} alt={image.alt} />
-    </a>
-  );
-}
+const UGCGallerySlide = (props) => (
+  <a className="ugc-gallery__slides" href="#" onClick={() => { props.onClick(); }}>
+    <img src={props.image.url} alt={props.image.alt} />
+  </a>
+);
 
 export default UGCGallerySlide;
