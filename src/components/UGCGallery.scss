@@ -1,0 +1,242 @@
+/* copied over from web-library */
+$font-path: '/src/fonts';
+$icon-path: '/src/icons';
+
+/* MEASUREMENTS */
+//Main body font size
+//All em measurements should be worked out from this value, for example, if you want to convert 20px into an em, the calculation is
+//20 / 16 = 1.25
+$body-base-pixels: 16;
+
+/* SCREEN SIZES */
+$content-max-width: 1200px;
+$desktop-min-width: 769px;
+$small-device-width: 401px;
+
+/* FONT */
+$font: 'proxima-nova', Arial, Helvetica;
+
+/* COLOURS */
+//Base variables
+$white: #fff;
+$black: #000;
+
+$transactional: #e4e726;
+$primary-colour: #41b97a;
+$secondary-colour: #e1e1e1;
+
+//Will become deprecated
+$lightest-grey: #edeeee;
+$black-grey: #252525;
+
+//Shadow colours
+$light-shadow: #ebebeb;
+$dark-shadow: rgba(0, 0, 0, 0.2);
+
+/* Hover variables */
+$white-hover: #e5e5e5;
+$black-hover: #333;
+
+$button-primary-hover: #5b5b5b;
+
+$transactional-hover: #cccf22;
+$primary-colour-hover: #3aa66d;
+$secondary-colour-hover: #e6e6e6;
+
+//Will become deprecated
+$lightest-grey-hover: #d4d5d5;
+$black-grey-hover: #505050;
+
+/* Inactive variables */
+$black-inactive: #737373;
+
+$button-primary-inactive: #a6a6a6;
+
+$transactional-inactive: #f0f288;
+$primary-colour-inactive: #97d9b6;
+$secondary-colour-inactive: #efefef;
+
+$focus-inactive: $primary-colour-inactive;
+$error-inactive: #ffa3af;
+
+//Will become deprecated
+$lightest-grey-inactive: #f5f6f6;
+$black-grey-inactive: #878787;
+
+//Focus variables
+$focus: $primary-colour;
+
+//Error variables
+$error: #ff586d;
+
+
+@mixin desktop($minMax: min) {
+  @if $minMax == max {
+    @media only screen and (max-width: $desktop-min-width - 1) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $desktop-min-width) {
+      @content;
+    }
+  }
+}
+
+@mixin clearfix() {
+  & {
+    *zoom: 1;
+  }
+
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 0;
+  border: none;
+  font-family: $font;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.94);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  &.ui-primary {
+    border-radius: 3px;
+    background: $black;
+    color: $white;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $button-primary-hover !important;
+    }
+
+    &.disabled {
+      background: $button-primary-inactive;
+      box-shadow: none;
+
+      &:hover {
+        background: $button-primary-inactive !important;
+      }
+    }
+  }
+
+  &.ui-tertiary {
+    padding: 4px 0 2px;
+    border-bottom: 2px solid $black;
+    background: $white;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+
+    &:hover {
+      border-bottom: 2px solid $black-hover !important;
+      color: $black-hover !important;
+    }
+  }
+}
+/* copied over from web-library */
+
+.ugc-gallery__container {
+  @include clearfix;
+}
+
+.ugc-gallery__header {
+  display: flex;
+  flex-flow: row wrap;
+  
+  @include desktop(max) {
+    justify-content: center;
+    text-align: center;
+  }
+
+  h2 {
+    flex: initial;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    @include desktop(max) {
+      flex-basis: 100%;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+  }
+
+  .btn {
+    flex: initial;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .ugc-gallery__btn--view {
+    @include desktop(max) {
+      margin-bottom: 32px;
+    }
+
+    @include desktop(min) {
+      margin-left: 37px;
+    }
+  }
+
+  .ugc-gallery__btn--upload {
+    margin-left: auto;
+
+    @include desktop(max) {
+      display: none;
+    }
+  }
+}
+
+.ugc-gallery {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.ugc-gallery--static {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -9px;
+  margin-right: -9px;
+}
+
+.ugc-gallery__dots {
+  padding-left: 0;
+  margin: 8px 0 0 0;
+  list-style: none;
+  float: right;
+
+  li {
+    float: left;
+
+    button {
+      font-size: 0;
+      color: transparent;
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      margin-left: 6px;
+      border-radius: 50%;
+      border: 1px solid $black;
+      opacity: 0.3;
+      cursor: pointer;
+    }    
+
+    &.slick-active button {
+      background-color: $black;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,211 @@
+/* copied over from web-library */
+$font-path: '/src/fonts';
+$icon-path: '/src/icons';
+
+/* MEASUREMENTS */
+//Main body font size
+//All em measurements should be worked out from this value, for example, if you want to convert 20px into an em, the calculation is
+//20 / 16 = 1.25
+$body-base-pixels: 16;
+
+/* SCREEN SIZES */
+$content-max-width: 1200px;
+$desktop-min-width: 769px;
+$small-device-width: 401px;
+
+/* FONT */
+$font: 'proxima-nova', Arial, Helvetica;
+
+/* COLOURS */
+//Base variables
+$white: #fff;
+$black: #000;
+
+$transactional: #e4e726;
+$primary-colour: #41b97a;
+$secondary-colour: #e1e1e1;
+
+//Will become deprecated
+$lightest-grey: #edeeee;
+$black-grey: #252525;
+
+//Shadow colours
+$light-shadow: #ebebeb;
+$dark-shadow: rgba(0, 0, 0, 0.2);
+
+/* Hover variables */
+$white-hover: #e5e5e5;
+$black-hover: #333;
+
+$button-primary-hover: #5b5b5b;
+
+$transactional-hover: #cccf22;
+$primary-colour-hover: #3aa66d;
+$secondary-colour-hover: #e6e6e6;
+
+//Will become deprecated
+$lightest-grey-hover: #d4d5d5;
+$black-grey-hover: #505050;
+
+/* Inactive variables */
+$black-inactive: #737373;
+
+$button-primary-inactive: #a6a6a6;
+
+$transactional-inactive: #f0f288;
+$primary-colour-inactive: #97d9b6;
+$secondary-colour-inactive: #efefef;
+
+$focus-inactive: $primary-colour-inactive;
+$error-inactive: #ffa3af;
+
+//Will become deprecated
+$lightest-grey-inactive: #f5f6f6;
+$black-grey-inactive: #878787;
+
+//Focus variables
+$focus: $primary-colour;
+
+//Error variables
+$error: #ff586d;
+
+
+@mixin desktop($minMax: min) {
+  @if $minMax == max {
+    @media only screen and (max-width: $desktop-min-width - 1) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $desktop-min-width) {
+      @content;
+    }
+  }
+}
+
+@mixin clearfix() {
+  & {
+    *zoom: 1;
+  }
+
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 0;
+  border: none;
+  font-family: $font;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.94);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  &.ui-primary {
+    border-radius: 3px;
+    background: $black;
+    color: $white;
+    text-transform: uppercase;
+
+    &:hover {
+      background: $button-primary-hover !important;
+    }
+
+    &.disabled {
+      background: $button-primary-inactive;
+      box-shadow: none;
+
+      &:hover {
+        background: $button-primary-inactive !important;
+      }
+    }
+  }
+
+  &.ui-tertiary {
+    padding: 4px 0 2px;
+    border-bottom: 2px solid $black;
+    background: $white;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+
+    &:hover {
+      border-bottom: 2px solid $black-hover !important;
+      color: $black-hover !important;
+    }
+  }
+}
+/* copied over from web-library */
+
+.ugc-gallery {
+  .slick-slide {
+    width: 320px;
+    padding: 0 8px;
+  }
+
+  .ugc-gallery__slides {
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      img {
+        outline: 4px solid $black;
+        outline-offset: -4px;
+      }
+    }
+    &.ugc-gallery__upload-slide:hover {
+      color: $black;
+      outline-color: $black;
+      outline-width: 4px;
+      outline-offset: -4px;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .ugc-gallery__upload-slide {
+    position: relative;
+    width: 25%;
+    max-width: 285px;
+    outline: 2px solid #e6e6e6;
+    outline-offset: -2px;
+    text-decoration: none;
+    text-align: center;
+    color: #e6e6e6;
+  }
+  .ugc-gallery-upload-slide__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    [class^='icon-'] {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+}
+
+.ugc-gallery--static .ugc-gallery__slides {
+  flex: initial;
+  padding: 0 9px;
+  
+  @include desktop(min) {
+    max-width: 25%;
+  }
+}

@@ -1,0 +1,90 @@
+/* copied over from web-library */
+/* MEASUREMENTS */
+/* SCREEN SIZES */
+/* FONT */
+/* COLOURS */
+/* Hover variables */
+/* Inactive variables */
+.btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 20px 0;
+  border: none;
+  font-family: "proxima-nova", Arial, Helvetica;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.94);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 16px; }
+  .btn.ui-primary {
+    border-radius: 3px;
+    background: #000;
+    color: #fff;
+    text-transform: uppercase; }
+    .btn.ui-primary:hover {
+      background: #5b5b5b !important; }
+    .btn.ui-primary.disabled {
+      background: #a6a6a6;
+      box-shadow: none; }
+      .btn.ui-primary.disabled:hover {
+        background: #a6a6a6 !important; }
+  .btn.ui-tertiary {
+    padding: 4px 0 2px;
+    border-bottom: 2px solid #000;
+    background: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center; }
+    .btn.ui-tertiary:hover {
+      border-bottom: 2px solid #333 !important;
+      color: #333 !important; }
+
+/* copied over from web-library */
+.ugc-gallery .slick-slide {
+  width: 320px;
+  padding: 0 8px; }
+
+.ugc-gallery .ugc-gallery__slides {
+  text-decoration: none;
+  display: block; }
+  .ugc-gallery .ugc-gallery__slides:hover img {
+    outline: 4px solid #000;
+    outline-offset: -4px; }
+  .ugc-gallery .ugc-gallery__slides.ugc-gallery__upload-slide:hover {
+    color: #000;
+    outline-color: #000;
+    outline-width: 4px;
+    outline-offset: -4px; }
+
+.ugc-gallery img {
+  max-width: 100%; }
+
+.ugc-gallery .ugc-gallery__upload-slide {
+  position: relative;
+  width: 25%;
+  max-width: 285px;
+  outline: 2px solid #e6e6e6;
+  outline-offset: -2px;
+  text-decoration: none;
+  text-align: center;
+  color: #e6e6e6; }
+
+.ugc-gallery .ugc-gallery-upload-slide__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .ugc-gallery .ugc-gallery-upload-slide__content [class^='icon-'] {
+    display: block;
+    margin-top: 10px; }
+
+.ugc-gallery--static .ugc-gallery__slides {
+  flex: initial;
+  padding: 0 9px; }
+  @media only screen and (min-width: 769px) {
+    .ugc-gallery--static .ugc-gallery__slides {
+      max-width: 25%; } }
